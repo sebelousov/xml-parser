@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>urn:advego.ru:order:32268444:jobs</id>
+  <title>Order #21</title>
+  <link rel="alternate" type="text/html" href="https://advego.com/order/jobs/?id_order=32268444&amp;job_state_filter=2"/>
+  <link rel="self" type="text/xml" href="https://advego.com/order/atom/32268444/"/>
+  <link rel="service.feed" type="application/x.atom+xml" href="http://advego.ru/order/atom/32268444/" title="Персональный заказ"/>
+
+  <entry>
+    <id>urn:advego.ru:order:32268444:jobs:231042405</id>
+    <author>
+      <name>sebelousov_ya_ru</name>
+    </author>
+    <theme>аккумулятор xiaomi redmi 81</theme>
+    
+    <title></title>
+    <published>Wed Feb 16 12:39:01 GMT 2022</published>
+    <content type="html">&lt;p&gt;Тема: аккумулятор&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;xiaomi&lt;/span&gt;&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;redmi&lt;/span&gt;&amp;nbsp;8&lt;br&gt;Ключевые слова:&amp;nbsp;аккумулятор&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;xiaomi&lt;/span&gt;&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;redmi&lt;/span&gt;&amp;nbsp;8,&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;xiaomi&lt;/span&gt;&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;redmi&lt;/span&gt;&amp;nbsp;8 батарея,&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;xiaomi&lt;/span&gt;&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;redmi&lt;/span&gt;&amp;nbsp;8 аккумулятор купить,&amp;nbsp;аккумулятор&amp;nbsp;&lt;span class=&quot;syntax_err&quot; title=&quot;&quot;&gt;сяоми&lt;/span&gt;&amp;nbsp;&lt;span class=&quot;syntax_err&quot; title=&quot;редки&quot;&gt;редми&lt;/span&gt;&amp;nbsp;8,&amp;nbsp;&lt;span class=&quot;syntax_err&quot; title=&quot;аксиом&quot;&gt;ксиаоми&lt;/span&gt;&amp;nbsp;&lt;span class=&quot;syntax_err&quot; title=&quot;редки&quot;&gt;редми&lt;/span&gt;&amp;nbsp;8 аккумулятор,&amp;nbsp;оригинальный,&amp;nbsp;цена,&amp;nbsp;купить,&amp;nbsp;&lt;span class=&quot;syntax_err&quot; title=&quot;спи&quot;&gt;спб&lt;/span&gt;&lt;br&gt;Использовать не менее 9 ключевых слов&lt;br&gt;Примечание для исполнителя: Название темы -- главный, первый ключ. Пишите КЗ нормально, если есть вхождение, например, &amp;quot;&lt;span class=&quot;syntax_noerr&quot;&gt;iphone&lt;/span&gt;&amp;nbsp;11&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;pro&lt;/span&gt;&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;max&lt;/span&gt;&amp;nbsp;аккумулятор купить&amp;quot;, пишите &amp;quot;купить аккумулятор&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;iPhone&lt;/span&gt;&amp;nbsp;11&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;Pro&lt;/span&gt;&amp;nbsp;&lt;span class=&quot;syntax_noerr&quot;&gt;Max&lt;/span&gt;&amp;quot;, вы же не роботы. Используйте синонимы и доп. слова по тексту: купить, отзывы, цена, интернет-магазин, в&amp;nbsp;&lt;span class=&quot;syntax_err&quot; title=&quot;спи&quot;&gt;спб&lt;/span&gt;, официальный сайт, каталог, оригинал (ВЫДЕЛЯЙТЕ ЖИРНЫМ)&lt;/p&gt;</content>
+  </entry>
+
+  <entry>
+    <id>urn:advego.ru:order:32268444:jobs:231042157</id>
+    <author>
+      <name>sebelousov_ya_ru</name>
+    </author>
+    <theme>аккумулятор xiaomi redmi 8</theme>
+    
+    <title></title>
+    <published>Wed Feb 16 12:34:08 GMT 2022</published>
+    <content type="html">&lt;p&gt;Тема: аккумулятор xiaomi redmi 8&lt;br&gt;Ключевые слова:&amp;nbsp;аккумулятор xiaomi redmi 8,&amp;nbsp;xiaomi redmi 8 батарея,&amp;nbsp;xiaomi redmi 8 аккумулятор купить,&amp;nbsp;аккумулятор сяоми редми 8,&amp;nbsp;ксиаоми редми 8 аккумулятор,&amp;nbsp;оригинальный,&amp;nbsp;цена,&amp;nbsp;купить,&amp;nbsp;спб&lt;br&gt;Использовать не менее 9 ключевых слов&lt;br&gt;Примечание для исполнителя: Название темы -- главный, первый ключ. Пишите КЗ нормально, если есть вхождение, например, &amp;quot;iphone 11 pro max аккумулятор купить&amp;quot;, пишите &amp;quot;купить аккумулятор iPhone 11 Pro Max&amp;quot;, вы же не роботы. Используйте синонимы и доп. слова по тексту: купить, отзывы, цена, интернет-магазин, в спб, официальный сайт, каталог, оригинал (ВЫДЕЛЯЙТЕ ЖИРНЫМ)&lt;/p&gt;</content>
+  </entry>
+
+</feed>
