@@ -1,4 +1,4 @@
-package parser;
+package xmlparseapp.parser;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,8 +9,6 @@ import java.nio.charset.StandardCharsets;
 public class PrintFile {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("test");
-		
 		PrintFile app = new PrintFile();
 		String fileName = "test.xml";
 		
@@ -21,13 +19,13 @@ public class PrintFile {
 
 	private InputStream getInputStreamFromResourceFile(String fileName) {
 		ClassLoader classLoader = getClass().getClassLoader();
-		InputStream is = classLoader.getResourceAsStream(fileName);
+		InputStream inputStream = classLoader.getResourceAsStream(fileName);
 		
-		if (is == null) {
+		if (inputStream == null) {
 			throw new IllegalArgumentException(String.format("The file %s is not found.", fileName));
 		}
 		
-		return is;
+		return inputStream;
 	}
 	
 	private void printFromInputStream(InputStream is) {
