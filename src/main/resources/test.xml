@@ -19,15 +19,27 @@
   </entry>
 
   <entry>
-    <id>urn:advego.ru:order:32268444:jobs:231042157</id>
+    <id>urn:advego.ru:order:32268445:jobs:231042157</id>
     <author>
-      <name>sebelousov_ya_ru</name>
+      <name>sebelousov_ya</name>
     </author>
     <theme>аккумулятор xiaomi redmi 8</theme>
     
     <title>Some title 2</title>
     <published>Wed Feb 16 12:34:08 GMT 2022</published>
     <content type="html">&lt;p&gt;Тема: аккумулятор xiaomi redmi 8&lt;br&gt;Ключевые слова:&amp;nbsp;аккумулятор xiaomi redmi 8,&amp;nbsp;xiaomi redmi 8 батарея,&amp;nbsp;xiaomi redmi 8 аккумулятор купить,&amp;nbsp;аккумулятор сяоми редми 8,&amp;nbsp;ксиаоми редми 8 аккумулятор,&amp;nbsp;оригинальный,&amp;nbsp;цена,&amp;nbsp;купить,&amp;nbsp;спб&lt;br&gt;Использовать не менее 9 ключевых слов&lt;br&gt;Примечание для исполнителя: Название темы -- главный, первый ключ. Пишите КЗ нормально, если есть вхождение, например, &amp;quot;iphone 11 pro max аккумулятор купить&amp;quot;, пишите &amp;quot;купить аккумулятор iPhone 11 Pro Max&amp;quot;, вы же не роботы. Используйте синонимы и доп. слова по тексту: купить, отзывы, цена, интернет-магазин, в спб, официальный сайт, каталог, оригинал (ВЫДЕЛЯЙТЕ ЖИРНЫМ)&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>urn:advego.ru:order:32268446:jobs:231042158</id>
+    <author>
+      <name>sebelousov</name>
+    </author>
+    <theme>аккумулятор xiaomi redmi 3</theme>
+    
+    <title>Some title 3</title>
+    <published>Wed Feb 17 12:36:12 GMT 2022</published>
+    <content type="html">Еще один текст из еще одной работы.</content>
   </entry>
 
 </feed>
