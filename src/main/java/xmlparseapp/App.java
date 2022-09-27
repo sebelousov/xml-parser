@@ -1,10 +1,11 @@
 package xmlparseapp;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
@@ -16,42 +17,28 @@ import xmlparseapp.parser.XMLParserDOM;
 import xmlparseapp.reader.XMLReaderFile;
 
 public class App {
-	private static String fileName;
+	private static XMLReaderFile reader = new XMLReaderFile(); 
+	private static XMLParser parser = new XMLParserDOM(); 
 	
-	public App(String fileName) {
-		super();
-		this.fileName = fileName;
-	}
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		App app = new App("test.xml");
+		String fileName = args.length == 0 ? "test.xml" : args[0];
 		
-		XMLReaderFile reader = new XMLReaderFile(fileName);
-		
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder builder = null;
 		Document document = null;
+		List<Job> jobs = null;
 		
 		try {
-			builder = factory.newDocumentBuilder();
-			document = builder.parse(reader.getIn());
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
+			document = reader.getDocumentFromResourceFile(fileName);
+			jobs = parser.parseAllJobsFromXML(document);
+		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		XMLParser parser = new XMLParserDOM(document);
-		List<Job> jobs = parser.parseAllJobsFromXML();
-		
-		for (Job j : jobs) {
-			System.out.println(j);
+		if (jobs != null) {
+			for (Job j : jobs) {
+				System.out.println(j);
+			}
 		}
 	}
 

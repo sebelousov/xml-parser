@@ -1,29 +1,40 @@
 package xmlparseapp.reader;
 
+import java.io.IOException;
 import java.io.InputStream;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 public class XMLReaderFile {
-	private String fileName;
-	private InputStream in = null;
+	private DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	private DocumentBuilder builder = null;
+	private Document document = null;
 	
-	public XMLReaderFile(String fileName) {
-		super();
-		this.fileName = fileName;
-		this.in = getInputStreamFromResourceFile(this.fileName);
-	}
-
-	private InputStream getInputStreamFromResourceFile(String fileName) {
-		ClassLoader classLoader = getClass().getClassLoader();
-		InputStream in = classLoader.getResourceAsStream(fileName);
+	public Document getDocumentFromFile(String fileName) throws ParserConfigurationException, SAXException, IOException {
+		builder = factory.newDocumentBuilder();
+		document = builder.parse(fileName);
 		
-		if (in == null) {
+		return document;
+	}
+	
+	public Document getDocumentFromResourceFile(String fileName) throws ParserConfigurationException, SAXException, IOException {
+		ClassLoader classLoader = getClass().getClassLoader();
+		InputStream is = classLoader.getResourceAsStream(fileName);
+		
+		if (is == null) {
 			throw new IllegalArgumentException(String.format("The file %s is not found.", fileName));
 		}
 		
-		return in;
+		builder = factory.newDocumentBuilder();
+		document = builder.parse(is);
+		is.close();
+		
+		return document;
 	}
-
-	public InputStream getIn() {
-		return in;
-	}
+	
+	 
 }

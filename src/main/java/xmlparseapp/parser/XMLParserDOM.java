@@ -13,15 +13,8 @@ import org.w3c.dom.NodeList;
 import xmlparseapp.entity.Job;
 
 public class XMLParserDOM implements XMLParser {
-	private Document document;
-	
-	public XMLParserDOM(Document document) {
-		super();
-		this.document = document;
-	}
-
 	@Override
-	public List<Job> parseAllJobsFromXML() {
+	public List<Job> parseAllJobsFromXML(Document document) {
 		// TODO Auto-generated method stub
 		List<Job> jobs = new ArrayList<>();
 		Element element = document.getDocumentElement();

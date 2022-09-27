@@ -6,5 +6,5 @@ import org.w3c.dom.Document;
 import xmlparseapp.entity.Job;
 
 public interface XMLParser {
-	public List<Job> parseAllJobsFromXML();
+	List<Job> parseAllJobsFromXML(Document document);
 }
