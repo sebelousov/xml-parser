@@ -14,14 +14,14 @@ public class XMLReaderFile {
 	private DocumentBuilder builder = null;
 	private Document document = null;
 	
-	public Document getDocumentFromFile(String fileName) throws ParserConfigurationException, SAXException, IOException {
+	public Document getDocumentFromFile(String fileName) throws SAXException, IOException, ParserConfigurationException {
 		builder = factory.newDocumentBuilder();
 		document = builder.parse(fileName);
 		
 		return document;
 	}
 	
-	public Document getDocumentFromResourceFile(String fileName) throws ParserConfigurationException, SAXException, IOException {
+	public Document getDocumentFromResourceFile(String fileName) throws SAXException, IOException, ParserConfigurationException {
 		ClassLoader classLoader = getClass().getClassLoader();
 		InputStream is = classLoader.getResourceAsStream(fileName);
 		
