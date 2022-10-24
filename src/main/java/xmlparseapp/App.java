@@ -9,6 +9,8 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import xmlparseapp.entity.Job;
+import xmlparseapp.helper.ExcelWriter;
+import xmlparseapp.helper.XLSExcelWriter;
 import xmlparseapp.parser.XMLParser;
 import xmlparseapp.parser.XMLParserDOM;
 import xmlparseapp.reader.XMLReaderFile;
@@ -16,11 +18,13 @@ import xmlparseapp.reader.XMLReaderFile;
 public class App {
 	private XMLReaderFile reader; 
 	private XMLParser parser;
+	private ExcelWriter writer;
 	
-	public App(XMLReaderFile reader, XMLParser parser) {
+	public App(XMLReaderFile reader, XMLParser parser, ExcelWriter writer) {
 		super();
 		this.reader = reader;
 		this.parser = parser;
+		this.writer = writer;
 	}
 
 	public static void main(String[] args) {
@@ -31,23 +35,20 @@ public class App {
 			return;
 		}
 		
-		App app = new App(new XMLReaderFile(), new XMLParserDOM());
+		App app = new App(new XMLReaderFile(), new XMLParserDOM(), new XLSExcelWriter());
 		
 		List<Job> jobs = null;
 		
 		try {
 			Document document = app.getDocument(fileName);
 			jobs = app.parseAllJobs(document);
+			app.write(jobs);
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		if (jobs != null) {
-			for (Job j : jobs) {
-				System.out.println(j);
-			}
-		}
+		
 	}
 	
 	private Document getDocument(String fileName) throws SAXException, IOException, ParserConfigurationException {
@@ -56,5 +57,9 @@ public class App {
 	
 	private List<Job> parseAllJobs(Document document) {
 		return parser.parseAllJobsFromXML(document);
+	}
+	
+	private void write(List<Job> jobs) {
+		writer.write(jobs);
 	}
 }
