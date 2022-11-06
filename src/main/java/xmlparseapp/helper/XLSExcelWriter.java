@@ -20,9 +20,24 @@ public class XLSExcelWriter implements ExcelWriter {
 	@Override
 	public void write(List<Job> jobs) {
 		// TODO Auto-generated method stub
+		if (jobs == null) {
+			return;
+		}
+		
 		File file = new File(".");
 		String path = file.getAbsolutePath();
 		String fileLocation = path.substring(0, path.length() - 1) + "temp.xls";
+		
+		String[] headers = {
+				"Job",
+				"Order",
+				"Theme",
+				"Author",
+				"Title",
+				"URL",
+				"Date",
+				"Content"
+		};
 		
 		WritableWorkbook workbook = null;
 		WritableSheet sheet = null;
@@ -45,67 +60,41 @@ public class XLSExcelWriter implements ExcelWriter {
 			formatCell.setBackground(Colour.WHITE);
 			formatCell.setWrap(false);
 			
-			Label headerCell = new Label(0, 0, "Job", formatCell);
-			sheet.setColumnView(0, 20);
-			sheet.addCell(headerCell);
+			Label headerCell = null;
 			
-			headerCell = new Label(1, 0, "Order", formatCell);
-			sheet.setColumnView(1, 20);
-			sheet.addCell(headerCell);
+			for (int i = 0; i < headers.length; i++) {
+				headerCell = new Label(i, 0, headers[i], formatCell);
+				sheet.setColumnView(0, 20);
+				sheet.addCell(headerCell);
+			}
 			
-			headerCell = new Label(2, 0, "Theme", formatCell);
-			sheet.setColumnView(2, 20);
-			sheet.addCell(headerCell);
-			
-			headerCell = new Label(3, 0, "Author", formatCell);
-			sheet.setColumnView(3, 20);
-			sheet.addCell(headerCell);
-			
-			headerCell = new Label(4, 0, "Title", formatCell);
-			sheet.setColumnView(4, 20);
-			sheet.addCell(headerCell);
-			
-			headerCell = new Label(5, 0, "URL", formatCell);
-			sheet.setColumnView(5, 20);
-			sheet.addCell(headerCell);
-			
-			headerCell = new Label(6, 0, "Date", formatCell);
-			sheet.setColumnView(6, 20);
-			sheet.addCell(headerCell);
-			
-			headerCell = new Label(7, 0, "Content", formatCell);
-			sheet.setColumnView(7, 20);
-			sheet.addCell(headerCell);
-			
-			if (jobs != null) {
-				Label cellText = null;
-				Number cellNumber = null;
-				for (int i = 0; i< jobs.size(); i++) {
-					cellNumber = new Number(0, i + 1, jobs.get(i).getId(), formatCell);
-					sheet.addCell(cellNumber);
-					
-					cellNumber = new Number(1, i + 1, jobs.get(i).getOrder(), formatCell);
-					sheet.addCell(cellNumber);
-					
-					cellText = new Label(2, i + 1, jobs.get(i).getTheme(), formatCell);
-					sheet.addCell(cellText);
-					
-					cellText = new Label(3, i + 1, jobs.get(i).getAuthor(), formatCell);
-					sheet.addCell(cellText);
-					
-					cellText = new Label(4, i + 1, jobs.get(i).getTitle(), formatCell);
-					sheet.addCell(cellText);
-					
-					cellText = new Label(5, i + 1, jobs.get(i).getUrl(), formatCell);
-					sheet.addCell(cellText);
-					
-					cellText = new Label(6, i + 1, jobs.get(i).getPublishedDate().toString(), formatCell);
-					sheet.addCell(cellText);
-					
-					cellText = new Label(7, i + 1, jobs.get(i).getContent(), formatCell);
-					sheet.addCell(cellText);
-					
-				}
+			Label cellText = null;
+			for (int i = 0; i< jobs.size(); i++) {
+
+				cellText = new Label(0, i + 1, jobs.get(i).getJobId(), formatCell);
+				sheet.addCell(cellText);
+				
+				cellText = new Label(1, i + 1, jobs.get(i).getOrder(), formatCell);
+				sheet.addCell(cellText);
+				
+				cellText = new Label(2, i + 1, jobs.get(i).getTheme(), formatCell);
+				sheet.addCell(cellText);
+				
+				cellText = new Label(3, i + 1, jobs.get(i).getAuthor(), formatCell);
+				sheet.addCell(cellText);
+				
+				cellText = new Label(4, i + 1, jobs.get(i).getTitle(), formatCell);
+				sheet.addCell(cellText);
+				
+				cellText = new Label(5, i + 1, jobs.get(i).getUrl(), formatCell);
+				sheet.addCell(cellText);
+				
+				cellText = new Label(6, i + 1, jobs.get(i).getPublishedDate().toString(), formatCell);
+				sheet.addCell(cellText);
+				
+				cellText = new Label(7, i + 1, jobs.get(i).getContent(), formatCell);
+				sheet.addCell(cellText);
+				
 			}
 			
 			workbook.write();

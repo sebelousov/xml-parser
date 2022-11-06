@@ -4,8 +4,8 @@ import java.net.URL;
 import java.util.Date;
 
 public class Job {
-	private int id;
-	private int order;
+	private String jobId;
+	private String order;
 	private String theme;
 	private String author;
 	private String title;
@@ -13,14 +13,25 @@ public class Job {
 	private Date publishedDate;
 	private String content;
 	
+	private String[] fields = {
+			jobId,
+			order,
+			theme,
+			author,
+			title,
+			url,
+		//	publishedDate,
+			content
+	};
+	
 	public Job() {
 		super();
 	}
 
-	public Job(int id, int order, String theme, String author, String title, String url, Date publishedDate,
+	public Job(String jobId, String order, String theme, String author, String title, String url, Date publishedDate,
 			String content) {
 		super();
-		this.id = id;
+		this.jobId = jobId;
 		this.order = order;
 		this.author = author;
 		this.theme = theme;
@@ -30,19 +41,19 @@ public class Job {
 		this.content = content;
 	}
 
-	public int getId() {
-		return id;
+	public String getJobId() {
+		return jobId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setJobId(String jobId) {
+		this.jobId = jobId;
 	}
 
-	public int getOrder() {
+	public String getOrder() {
 		return order;
 	}
 
-	public void setOrder(int order) {
+	public void setOrder(String order) {
 		this.order = order;
 	}
 
@@ -96,7 +107,7 @@ public class Job {
 
 	@Override
 	public String toString() {
-		return "Job [id=" + id + ", order=" + order + ", theme=" + theme + ", author=" + author + ", title=" + title
+		return "Job [id=" + jobId + ", order=" + order + ", theme=" + theme + ", author=" + author + ", title=" + title
 				+ ", url=" + url + ", publishedDate=" + publishedDate + ", content=" + content + "]";
 	}
 
