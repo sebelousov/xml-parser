@@ -1,4 +1,4 @@
-package xmlparseapp.helper;
+package xmlparseapp.writer;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,6 +6,7 @@ import java.util.List;
 
 import jxl.Workbook;
 import jxl.format.Colour;
+import jxl.write.DateTime;
 import jxl.write.Label;
 import jxl.write.Number;
 import jxl.write.WritableCellFormat;
@@ -16,7 +17,17 @@ import jxl.write.WriteException;
 import xmlparseapp.entity.Job;
 
 public class XLSExcelWriter implements ExcelWriter {
-
+	private String[] headers = {
+			"Job",
+			"Order",
+			"Theme",
+			"Author",
+			"Title",
+			"URL",
+			"Date",
+			"Content"
+	};
+	
 	@Override
 	public void write(List<Job> jobs) {
 		// TODO Auto-generated method stub
@@ -27,17 +38,6 @@ public class XLSExcelWriter implements ExcelWriter {
 		File file = new File(".");
 		String path = file.getAbsolutePath();
 		String fileLocation = path.substring(0, path.length() - 1) + "temp.xls";
-		
-		String[] headers = {
-				"Job",
-				"Order",
-				"Theme",
-				"Author",
-				"Title",
-				"URL",
-				"Date",
-				"Content"
-		};
 		
 		WritableWorkbook workbook = null;
 		WritableSheet sheet = null;
@@ -69,13 +69,16 @@ public class XLSExcelWriter implements ExcelWriter {
 			}
 			
 			Label cellText = null;
+			Number cellNumber = null;
+			DateTime cellDate = null;
+			
 			for (int i = 0; i< jobs.size(); i++) {
 
-				cellText = new Label(0, i + 1, jobs.get(i).getJobId(), formatCell);
-				sheet.addCell(cellText);
+				cellNumber = new Number(0, i + 1, jobs.get(i).getJobId(), formatCell);
+				sheet.addCell(cellNumber);
 				
-				cellText = new Label(1, i + 1, jobs.get(i).getOrder(), formatCell);
-				sheet.addCell(cellText);
+				cellNumber = new Number(1, i + 1, jobs.get(i).getOrder(), formatCell);
+				sheet.addCell(cellNumber);
 				
 				cellText = new Label(2, i + 1, jobs.get(i).getTheme(), formatCell);
 				sheet.addCell(cellText);
@@ -89,8 +92,8 @@ public class XLSExcelWriter implements ExcelWriter {
 				cellText = new Label(5, i + 1, jobs.get(i).getUrl(), formatCell);
 				sheet.addCell(cellText);
 				
-				cellText = new Label(6, i + 1, jobs.get(i).getPublishedDate().toString(), formatCell);
-				sheet.addCell(cellText);
+				cellDate = new DateTime(6, i + 1, jobs.get(i).getPublishedDate(), formatCell);
+				sheet.addCell(cellDate);
 				
 				cellText = new Label(7, i + 1, jobs.get(i).getContent(), formatCell);
 				sheet.addCell(cellText);

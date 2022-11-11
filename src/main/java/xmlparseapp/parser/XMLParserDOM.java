@@ -2,13 +2,12 @@ package xmlparseapp.parser;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
+import java.util.Locale;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,6 +24,9 @@ public class XMLParserDOM implements XMLParser {
 	private DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	private DocumentBuilder builder = null;
 	private Document document = null;
+	
+	private String template = "EEE MMM d hh:mm:ss z yyyy";
+	private DateFormat formatter = new SimpleDateFormat(template, Locale.ENGLISH);
 	
 	@Override
 	public List<Job> parse(InputStream is) {
@@ -52,12 +54,15 @@ public class XMLParserDOM implements XMLParser {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return jobs;
 	}
 	
-	private Job parseJobFromEntry(Node entry) {
+	private Job parseJobFromEntry(Node entry) throws ParseException {
 		Job job = new Job();
 		
 		for (int i = 0; i < entry.getChildNodes().getLength(); i++) {
@@ -68,10 +73,12 @@ public class XMLParserDOM implements XMLParser {
 				String value = node.getTextContent();
 				switch (node.getNodeName()) {
 				case "id":
-					Map<String, String> map = parseId(value);
-					job.setUrl(map.get("urn"));
-					job.setOrder(map.get("order"));
-					job.setJobId(map.get("jobs"));
+					String[] pairs = value.split(":");
+					
+					job.setUrl(pairs[1]);
+					job.setOrder(Integer.parseInt(pairs[3]));
+					job.setJobId(Integer.parseInt(pairs[5]));
+					
 					break;
 				case "author":
 					job.setAuthor(value);
@@ -83,7 +90,7 @@ public class XMLParserDOM implements XMLParser {
 					job.setTitle(value);
 					break;
 				case "published":
-					job.setPublishedDate(new Date(value));
+					job.setPublishedDate(formatter.parse(value));
 					break;
 				case "content":
 					job.setContent(value);
@@ -93,21 +100,5 @@ public class XMLParserDOM implements XMLParser {
 		}
 		
 		return job;
-	}
-	
-	private Map<String, String> parseId(String content) {
-		// urn:advego.ru:order:32268444:jobs:231042157
-		
-		String[] pairs = content.split(":");
-
-		Map<String, String> map = new HashMap<>();
-		
-		for (int i = 0; i < pairs.length; i++) {
-			if (i % 2 == 0) {
-				map.put(pairs[i], pairs[i + 1]);
-			}
-		}
-		
-		return map;
 	}
 }

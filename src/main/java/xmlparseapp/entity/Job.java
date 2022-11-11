@@ -2,10 +2,12 @@ package xmlparseapp.entity;
 
 import java.net.URL;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Job {
-	private String jobId;
-	private String order;
+	private int jobId;
+	private int order;
 	private String theme;
 	private String author;
 	private String title;
@@ -13,22 +15,11 @@ public class Job {
 	private Date publishedDate;
 	private String content;
 	
-	private String[] fields = {
-			jobId,
-			order,
-			theme,
-			author,
-			title,
-			url,
-		//	publishedDate,
-			content
-	};
-	
 	public Job() {
 		super();
 	}
 
-	public Job(String jobId, String order, String theme, String author, String title, String url, Date publishedDate,
+	public Job(int jobId, int order, String theme, String author, String title, String url, Date publishedDate,
 			String content) {
 		super();
 		this.jobId = jobId;
@@ -41,19 +32,19 @@ public class Job {
 		this.content = content;
 	}
 
-	public String getJobId() {
+	public int getJobId() {
 		return jobId;
 	}
 
-	public void setJobId(String jobId) {
+	public void setJobId(int jobId) {
 		this.jobId = jobId;
 	}
 
-	public String getOrder() {
+	public int getOrder() {
 		return order;
 	}
 
-	public void setOrder(String order) {
+	public void setOrder(int order) {
 		this.order = order;
 	}
 
@@ -104,14 +95,9 @@ public class Job {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	@Override
+	
 	public String toString() {
 		return "Job [id=" + jobId + ", order=" + order + ", theme=" + theme + ", author=" + author + ", title=" + title
 				+ ", url=" + url + ", publishedDate=" + publishedDate + ", content=" + content + "]";
 	}
-
-	
-	
-	
 }
