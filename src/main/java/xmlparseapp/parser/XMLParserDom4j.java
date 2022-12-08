@@ -10,21 +10,27 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import xmlparseapp.App;
 import xmlparseapp.entity.Job;
 
 public class XMLParserDom4j implements XMLParser {
 
+	private static final Logger LOGGER = Logger.getLogger(XMLParserDom4j.class);
+	
 	private String template = "EEE MMM d hh:mm:ss z yyyy";
 	private DateFormat formatter = new SimpleDateFormat(template, Locale.ENGLISH);
 	
 	@Override
 	public List<Job> parse(InputStream is) {
 		// TODO Auto-generated method stub
+		LOGGER.info("Start method parse.");
+		
 		SAXReader saxReader = new SAXReader();
     	List<Job> jobs = new ArrayList<>();
     	
@@ -54,14 +60,19 @@ public class XMLParserDom4j implements XMLParser {
 			
 		} catch (DocumentException e) {
 			// TODO Auto-generated catch block
+			LOGGER.info("DocumentException.");
 			e.printStackTrace();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
+			LOGGER.info("IOException.");
 			e1.printStackTrace();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
+			LOGGER.info("ParseException.");
 			e.printStackTrace();
 		}
+		
+		LOGGER.info("End method parse.");
 		
 		return jobs;
 	}
